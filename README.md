@@ -42,13 +42,57 @@ Data Binding
         package com.example.android.katesapp
         
         [remain the following modules]
-        
         import android.os.Bundle
         import androidx.appcompat.app.AppCompatActivity
         
-        [add the following modules]
+        [add the following modules to do data bind]
         import com.example.android.katesapp.databinding.ActivityMainBinding
         imoort androidx.databinding.DataBindingUtil
+        
+        [add the following modules to do input feature]
+        import android.view.View
+        import andoroid.view.imputmethod.InputMethodManager
+        
+        class MainActivity: AppCompatActivity(){
+        
+            //data bind
+            private lateinit var binding: ActivityMainBinding
+            
+            // immutable & as Final Var
+            // using Dtata Class called MyName(param1, param2), param as optional
+            priavte val myName: MyName = MyName("Kate Chen")
+            
+            
+            // LifeCycle in Andorid System
+            // local var
+            override fun onCreate(saveInstanceState: Bundle?){
+               
+               super.onCreate(saveInstanceState))
+               
+               binding = DataBindingUtil.setContentView(this, R.layout.activity_main)
+               
+               binding.myName = myName
+               
+               // doneButton
+               binding.doneButton.setOnClickListener {
+               
+                  addNickname(it)
+               
+               }
+            }
+            
+            // click handler
+            private fun addNickname(view: View){
+               
+               binding.apply{ //omit}
+            
+            }
+            
+            // visible keyboard
+            val imm = getSystemService(Context.INPUT_METHOD_SERVICE) as ImputMethodManager
+            imm.hideSoftInputFromWindow(view.windowToken, 0)
+        
+        }
         
         
         
