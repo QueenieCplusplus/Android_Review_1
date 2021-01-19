@@ -1,4 +1,6 @@
 # Android_Review_1
+
+
 Data Binding
 
 
@@ -195,3 +197,6 @@ Data Binding
         </layout>
 
 
+8. today's tip:
+
+   https://medium.com/@louis383/kotlin-這些符號到底什麼意思-4274d3ae32ab
