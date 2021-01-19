@@ -75,6 +75,7 @@ Data Binding
                binding.myName = myName
                
                // doneButton
+               // related with UI elements
                binding.doneButton.setOnClickListener {
                
                   addNickname(it)
@@ -85,7 +86,17 @@ Data Binding
             // click handler
             private fun addNickname(view: View){
                
-               binding.apply{ //omit}
+               //related with xml-formatted UI element
+               binding.apply{
+               
+                 doneButton.visibility = View.GONE
+                 nicknameEdit.visibility = View.GONE
+                 nicknameText.visibitity = View.VISIBLE
+                 
+                 // input feature
+                 myName?.nickname = nicknameEdit.text.toString()
+               
+               }
             
             }
             
