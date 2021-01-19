@@ -66,6 +66,7 @@ Data Binding
             
             // LifeCycle in Andorid System
             // local var
+            // ? means Nullable
             override fun onCreate(saveInstanceState: Bundle?){
                
                super.onCreate(saveInstanceState))
@@ -94,6 +95,7 @@ Data Binding
                  nicknameText.visibitity = View.VISIBLE
                  
                  // input feature
+                 // ? means Nullable
                  myName?.nickname = nicknameEdit.text.toString()
                
                }
