@@ -11,7 +11,7 @@ Data Binding
         3.1, check kotlin's version.
         3.2, check android sdk version is between 19~30.
 
-4. create an empty Activity.
+4. create an empty Activity called MyName
 
         package com.example.android.katesapp
 
@@ -96,18 +96,21 @@ Data Binding
         }
         
 7. design layout in xml format.
+   create a new layout called activity_main.xml which is reated to MainActivity.kt in src code.
 
         <?xml version="1.0" encoding="utf-8"?>
 
         <layout xmlns:android="http://schemas.android.com/apk/res/android"
             xmlns:app="http://schemas.android.com/apk/res-auto">
 
+            #Data bind with data class
             <data>
                 <variable
                     name="myName"
-                    type="com.example.android.aboutme.MyName" />
+                    type="com.example.android.katesapp.MyName" />
             </data>
 
+            #A general-used layout style in Android.
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
