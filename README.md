@@ -7,10 +7,11 @@ Data Binding
 2. create a package, and assaign a name to it.
 
 3. check dir called project/app/build.gradle, which are dependencies located. 
-   3.1, check kotlin's version.
-   3.2, check android sdk version is between 19~30.
 
-4. ceate an empty Activity.
+        3.1, check kotlin's version.
+        3.2, check android sdk version is between 19~30.
+
+4. create an empty Activity.
 
         package com.example.android.katesapp
 
