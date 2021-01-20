@@ -218,6 +218,9 @@ Data Binding
        import android.widget.EditText
        import android.widget.TextView
        
+       [keyboard]
+       import android.content.Context
+       
        class MainActivity : AppCompatActivity() {
        
            override fun onCreate(savedInstanceState: Bundle?){
@@ -229,10 +232,13 @@ Data Binding
                 
                 // Lifecycle Phase binding methods wait to be called.
                 // 進入生命週期初始時，畫面便繫結 UI 元件的方法，等待觸動引發呼叫。
+                
+                // 編輯後
                 findViewById<Button>(R.id.done_button).setOnClickListener {
                         inputHandler(it)
                 }
            
+                // 編輯前
                 findViewById<TextView>(R.id.nickname_text).setOnClickListener{
                         btnHandler(it)
                 }
@@ -255,6 +261,13 @@ Data Binding
                 view.visibility = View.GONE
                 // 編輯後的畫面被顯示
                 viewer.visibility = View.VISIBLE
+                
+                // keyboard is hidden
+                // Typecast 型別轉換，這而跟系統有關，不可以有 ? nullable
+                val imm = getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
+                
+                // 特效：鍵盤隱藏
+                imm.hideSoftInputFromWindow(view.windowToken, 0)    
            
            }
            
@@ -263,9 +276,22 @@ Data Binding
            
                 val editor = findViewById<EditText>(R.id.nickname_edit)
                 val btn = findViewById<Button>(R.id.done_button)
+                
+                editor.visibility = View.VISIBLE
+                btn.visibility = View.VISIBLE
+                viewer.visibility = View.GONE
+                
+                // 特效：聚焦在編輯器上
+                editor.requestFocus()
+                
+                // 特效：鍵盤顯示
+                val imm = getSystemService(Context.INPUT_METHOD_SERVICE) as InputMehodManager
+                imm.showSoftInput(editText, 0)
            
            }
        
-       
-       
        }
+
+10. today's tip
+
+    https://www.kotlincn.net/docs/reference/typecasts.html
