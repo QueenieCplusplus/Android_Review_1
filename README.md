@@ -226,23 +226,43 @@ Data Binding
                 
                 setContentView(R.layout.activity_main)
                 
+                
+                // Lifecycle Phase binding methods wait to be called.
+                // 進入生命週期初始時，畫面便繫結 UI 元件的方法，等待觸動引發呼叫。
                 findViewById<Button>(R.id.done_button).setOnClickListener {
                         inputHandler(it)
                 }
            
                 findViewById<TextView>(R.id.nickname_text).setOnClickListener{
-                        updateHandler(it)
+                        btnHandler(it)
                 }
            
            }
            
            
+           // Special Effects
+           // 方法經過畫面變動的參數，產生相應的特效結果。
            private fun inputHandler(view: View){
+           
+                val editor = findViewById<TextView>(R.id.nickname_edit)
+                val viewer = findViewById<TextView>(R.id.nickname_text)
+                
+                // 編輯器的字串傳入畫面的字串顯示
+                viewer.text = editor.text
+                // 編輯器被隱藏
+                editor.visibility = View.GONE
+                // 編輯前的畫面被隱藏
+                view.visibility = View.GONE
+                // 編輯後的畫面被顯示
+                viewer.visibility = View.VISIBLE
            
            }
            
            
-           private fun updateHandler(view: View){
+           private fun visibleHandler(view: View){
+           
+                val editor = findViewById<EditText>(R.id.nickname_edit)
+                val btn = findViewById<Button>(R.id.done_button)
            
            }
        
