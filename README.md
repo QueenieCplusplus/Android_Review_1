@@ -200,3 +200,52 @@ Data Binding
 8. today's tip:
 
    https://medium.com/@louis383/kotlin-這些符號到底什麼意思-4274d3ae32ab
+   
+9. the relationship between UI ele & logical code. While using widget module instead of databiding.
+
+       package com.android.example.katesapp
+       
+       import android.os.Bundle
+       import androidx.appcompat.app.AppCompatActivity
+       
+       [add Interaction Module]
+       import android.view.View
+       import android.view.inputmethod.InputMethodMananger
+       
+       [add UI element module]
+       [using widget instead of databinding]
+       import android.widget.Button
+       import android.widget.EditText
+       import android.widget.TextView
+       
+       class MainActivity : AppCompatActivity() {
+       
+           override fun onCreate(savedInstanceState: Bundle?){
+           
+                super.onCreate(savedInstanceState)
+                
+                setContentView(R.layout.activity_main)
+                
+                findViewById<Button>(R.id.done_button).setOnClickListener {
+                        inputHandler(it)
+                }
+           
+                findViewById<TextView>(R.id.nickname_text).setOnClickListener{
+                        updateHandler(it)
+                }
+           
+           }
+           
+           
+           private fun inputHandler(view: View){
+           
+           }
+           
+           
+           private fun updateHandler(view: View){
+           
+           }
+       
+       
+       
+       }
