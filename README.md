@@ -40,7 +40,7 @@ Data Binding
 
         data class MyName(var name: String = "", var nickname: String = "")
         
-6. instead of making Activity to import Data class, we can import databinding modules.
+6. import databinding modules.
 
         package com.example.android.katesapp
         
